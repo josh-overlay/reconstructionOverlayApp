@@ -409,7 +409,7 @@ struct DenseNodeData< Data , UIntPack< FEMSigs ... > > : public _SparseOrDenseNo
 	Data& operator[]( const RegularTreeNode< Dim , FEMTreeNodeData >* node ) { return _data[ node->nodeData.nodeIndex ]; }
 	Data* operator()( const RegularTreeNode< Dim , FEMTreeNodeData >* node ) { return ( node==NULL || node->nodeData.nodeIndex>=(int)_sz ) ? NULL : &_data[ node->nodeData.nodeIndex ]; }
 	const Data* operator()( const RegularTreeNode< Dim , FEMTreeNodeData >* node ) const { return ( node==NULL || node->nodeData.nodeIndex>=(int)_sz ) ? NULL : &_data[ node->nodeData.nodeIndex ]; }
-	int index( const RegularTreeNode< Dim , FEMTreeNodeData >* node ) const { return ( !node || node->nodeData.nodeIndex<0 || node->nodeData.nodeIndex>=(int)this->_data.size() ) ? -1 : node->nodeData.nodeIndex; }
+	int index( const RegularTreeNode< Dim , FEMTreeNodeData >* node ) const { return ( !node || node->nodeData.nodeIndex<0 || node->nodeData.nodeIndex>=(int)this->_sz ) ? -1 : node->nodeData.nodeIndex; }
 	Pointer( Data ) operator()( void ) { return _data; }
 	ConstPointer( Data ) operator()( void ) const { return ( ConstPointer( Data ) )_data; }
 protected:
@@ -422,7 +422,7 @@ protected:
 		for( size_t i=0 ; i<_sz ; i++ ) if( newNodeIndices[i]>=0 && newNodeIndices[i]<newNodeCount ) newData[ newNodeIndices[i] ] = _data[i];
 		DeletePointer( _data );
 		_data = newData;
-		_sz = newNodeCount;
+		_sz = newNodeCount;	
 	}
 	size_t _sz;
 	void _resize( size_t sz ){ DeletePointer( _data ) ; if( sz ) _data = NewPointer< Data >( sz ) ; else _data = NullPointer( Data ) ; _sz = sz; }
@@ -1923,12 +1923,12 @@ protected:
 		if( node )
 		{
 			int d , off[Dim] ; node->depthAndOffset( d , off );
-			BaseFEMIntegrator::template ParentOverlapBounds( UIntPack< FEMDegrees1 ... >() , UIntPack< FEMDegrees2 ... >() , d , off , start , end );
+			BaseFEMIntegrator::ParentOverlapBounds( UIntPack< FEMDegrees1 ... >() , UIntPack< FEMDegrees2 ... >() , d , off , start , end );
 		}
 	}
 	template< unsigned int ... FEMDegrees1 , unsigned int ... FEMDegrees2 > static void _SetParentOverlapBounds( UIntPack< FEMDegrees1 ... > , UIntPack< FEMDegrees2 ... > , int cIdx , int start[Dim] , int end[Dim] )
 	{
-		BaseFEMIntegrator::template ParentOverlapBounds( UIntPack< FEMDegrees1 ... >() , UIntPack< FEMDegrees2 ... >() , cIdx , start , end );
+		BaseFEMIntegrator::ParentOverlapBounds( UIntPack< FEMDegrees1 ... >() , UIntPack< FEMDegrees2 ... >() , cIdx , start , end );
 	}
 
 	template< unsigned int ... FEMSigs >
