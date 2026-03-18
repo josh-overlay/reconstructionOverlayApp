@@ -67,15 +67,18 @@ using namespace standard_cyborg;
 
 - (BOOL)writeToOBJZipAtPath:(NSString *)objZipPath
 {
+    // Check if texture coordinates are available
+    BOOL hasTexCoords = (self.texCoordData != nil && [self.texCoordData length] > 0);
+
     // the name, without the path and extension.
     NSString *objZipName = [[objZipPath lastPathComponent] stringByDeletingPathExtension];
-    
+
     NSString *zipDirectory = [NSTemporaryDirectory() stringByAppendingPathComponent:@"temp-zip-dir"];
     if ([[NSFileManager defaultManager] fileExistsAtPath:zipDirectory]) {
         [[NSFileManager defaultManager] removeItemAtPath:zipDirectory error:NULL];
     }
     [[NSFileManager defaultManager] createDirectoryAtPath:zipDirectory withIntermediateDirectories:NO attributes:nil error:NULL];
-    
+
     NSString *jpegFilename = [NSString stringWithFormat:@"%@.jpeg", objZipName];
     NSString *objFilename = [NSString stringWithFormat:@"%@.obj", objZipName];
     NSString *mtlFilename = [NSString stringWithFormat:@"%@.mtl", objZipName];
@@ -110,29 +113,38 @@ using namespace standard_cyborg;
                 fprintf(file, "vn %f %f %f\n", floatNormals[4 * iv + 0], floatNormals[4 * iv + 1], floatNormals[4 * iv + 2]);
             }
         }
-        
-        {
+
+        if (hasTexCoords) {
             const float *floatTexCoords = (const float *)[self.texCoordData bytes];
             for (int iv = 0; iv < self.vertexCount; ++iv) {
                 fprintf(file, "vt %f %f\n", floatTexCoords[2 * iv + 0], floatTexCoords[2 * iv + 1]);
             }
         }
-        
-        fprintf(file, "usemtl Texture\n");
+
+        if (hasTexCoords) {
+            fprintf(file, "usemtl Texture\n");
+        }
         fprintf(file, "s off\n");
-        
+
         {
             const int *intFaces = (const int *)[self.facesData bytes];
-            
+
             for (int iFace = 0; iFace < self.faceCount; iFace++) {
                 int index0 = intFaces[iFace * 3 + 0] + 1;
                 int index1 = intFaces[iFace * 3 + 1] + 1;
                 int index2 = intFaces[iFace * 3 + 2] + 1;
-                
-                fprintf(file, "f %d/%d/%d %d/%d/%d %d/%d/%d\n",
-                        index0, index0, index0,
-                        index1, index1, index1,
-                        index2, index2, index2);
+
+                if (hasTexCoords) {
+                    fprintf(file, "f %d/%d/%d %d/%d/%d %d/%d/%d\n",
+                            index0, index0, index0,
+                            index1, index1, index1,
+                            index2, index2, index2);
+                } else {
+                    fprintf(file, "f %d//%d %d//%d %d//%d\n",
+                            index0, index0,
+                            index1, index1,
+                            index2, index2);
+                }
             }
         }
         
@@ -140,15 +152,15 @@ using namespace standard_cyborg;
     }
     
     // write .mtl
-    {
+    if (hasTexCoords) {
         FILE *file = fopen([tmpMtlPath UTF8String], "w");
         if (file == NULL) {
             return false;
         }
-        
+
         fprintf(file, "# StandardCyborgFusionVersion %s\n", SCFrameworkVersion());
         fprintf(file, "# StandardCyborgFusionMetadata { \"color_space\": \"sRGB\" }\n");
-        
+
         fprintf(file, "newmtl Texture\n");
         fprintf(file, "Ns 0.000000\n");
         fprintf(file, "Kd 1.000000 1.000000 1.000000\n");
@@ -156,12 +168,14 @@ using namespace standard_cyborg;
         fprintf(file, "Ks 0.000000 0.000000 0.000000\n");
         fprintf(file, "Ke 0.000000 0.000000 0.000000\n");
         fprintf(file, "map_Kd %s\n", [jpegFilename UTF8String]);
-        
+
         fclose(file);
     }
-    
+
     // write .jpeg
-    [self writeTextureToJPEGAtPath:tmpJpegPath];
+    if (hasTexCoords) {
+        [self writeTextureToJPEGAtPath:tmpJpegPath];
+    }
     
     [SSZipArchive createZipFileAtPath:objZipPath withContentsOfDirectory:zipDirectory];
     

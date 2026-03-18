@@ -28,12 +28,12 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
             
             if _shouldExportToUSDZ {
                 if let mesh = _mesh {
-                    let tempUSDZPath = NSTemporaryDirectory().appending("/mesh.usdc")
-                    
-                    try? FileManager.default.removeItem(atPath: tempUSDZPath)
-                    mesh.writeToUSDC(atPath: tempUSDZPath)
-                    
-                    shareURL = URL(fileURLWithPath: tempUSDZPath)
+                    let tempPLYPath = NSTemporaryDirectory().appending("/mesh.ply")
+
+                    try? FileManager.default.removeItem(atPath: tempPLYPath)
+                    mesh.writeToPLY(atPath: tempPLYPath)
+
+                    shareURL = URL(fileURLWithPath: tempPLYPath)
                 } else {
                     shareURL = scan.writeUSDZ()
                 }

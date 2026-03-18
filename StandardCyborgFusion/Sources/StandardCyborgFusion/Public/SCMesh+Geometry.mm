@@ -157,20 +157,24 @@ using math::Vec2;
     if (self.textureData != nil) {
         std::vector<Vec4> rgba(self.textureWidth * self.textureHeight, Vec4{0, 0, 0, 0});
         memcpy(rgba.data(), [self.textureData bytes], [self.textureData length]);
-        
+
         sc3d::ColorImage texture((int)self.textureWidth,
                            (int)self.textureHeight,
                            rgba);
-        
+
         geo.setTexture(texture);
     } else if (self.textureJPEGPath != nil) {
-        sc3d::ColorImage texture;
-        
-        if (io::imgfile::ReadColorImageFromFile(texture, [self.textureJPEGPath UTF8String])) {
-            geo.setTexture(texture);
-        } else {
-            NSLog(@"Error reading color image from %@", self.textureJPEGPath);
+        // Only try to read texture if the file actually exists
+        if ([[NSFileManager defaultManager] fileExistsAtPath:self.textureJPEGPath]) {
+            sc3d::ColorImage texture;
+
+            if (io::imgfile::ReadColorImageFromFile(texture, [self.textureJPEGPath UTF8String])) {
+                geo.setTexture(texture);
+            } else {
+                NSLog(@"Error reading color image from %@", self.textureJPEGPath);
+            }
         }
+        // If file doesn't exist, silently skip - vertex colors will be used instead
     }
 }
 
