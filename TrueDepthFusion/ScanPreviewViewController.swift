@@ -2,8 +2,7 @@
 //  ScanPreviewViewController.swift
 //  DepthRenderer
 //
-//  Created by Aaron Thompson on 5/11/18.
-//
+
 
 import Foundation
 import ModelIO
@@ -23,36 +22,76 @@ class ScanPreviewViewController: UIViewController, QLPreviewControllerDataSource
     private var _quickLookUSDZURL: URL?
     
     @IBAction private func _export(_ sender: AnyObject) {
-        if let scan = scan {
-            let shareURL: URL?
-            
-            if _shouldExportToUSDZ {
-                if let mesh = _mesh {
-                    let tempPLYPath = NSTemporaryDirectory().appending("/mesh.ply")
+        guard scan != nil else { return }
 
-                    try? FileManager.default.removeItem(atPath: tempPLYPath)
-                    mesh.writeToPLY(atPath: tempPLYPath)
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-                    shareURL = URL(fileURLWithPath: tempPLYPath)
-                } else {
-                    shareURL = scan.writeUSDZ()
-                }
-            } else if let meshURL = _meshURL {
-                shareURL = meshURL
+        sheet.addAction(UIAlertAction(title: "Send to Jetson", style: .default) { [weak self] _ in
+            self?._sendToJetson()
+        })
+
+        sheet.addAction(UIAlertAction(title: "Share / Export", style: .default) { [weak self] _ in
+            self?._share(sender: sender)
+        })
+
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        if let popover = sheet.popoverPresentationController {
+            popover.sourceView = sender as? UIView ?? self.view
+        }
+
+        present(sheet, animated: true)
+    }
+
+    private func _share(sender: AnyObject) {
+        guard let scan = scan else { return }
+        let shareURL: URL?
+
+        if _shouldExportToUSDZ {
+            if let mesh = _mesh {
+                let tempPLYPath = NSTemporaryDirectory().appending("/mesh.ply")
+                try? FileManager.default.removeItem(atPath: tempPLYPath)
+                mesh.writeToPLY(atPath: tempPLYPath)
+                shareURL = URL(fileURLWithPath: tempPLYPath)
             } else {
-                shareURL = scan.writeCompressedPLY()
+                shareURL = scan.writeUSDZ()
             }
-            
-            if let shareURL = shareURL {
-                _quickLookUSDZURL = shareURL
-                // let controller = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
-                // controller.popoverPresentationController?.sourceView = sender as? UIView
-                // present(controller, animated: true, completion: nil)
-                let controller = QLPreviewController()
-                controller.dataSource = self
-                controller.modalPresentationStyle = .overFullScreen
-                self.present(controller, animated: true, completion: nil)
-            }
+        } else if let meshURL = _meshURL {
+            shareURL = meshURL
+        } else {
+            shareURL = scan.writeCompressedPLY()
+        }
+
+        if let shareURL = shareURL {
+            _quickLookUSDZURL = shareURL
+            let controller = QLPreviewController()
+            controller.dataSource = self
+            controller.modalPresentationStyle = .overFullScreen
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+
+    private func _sendToJetson() {
+        guard let scan = scan else { return }
+
+        let plyURL: URL
+
+        if let mesh = _mesh {
+            let tempPLYPath = NSTemporaryDirectory().appending("/mesh.ply")
+            try? FileManager.default.removeItem(atPath: tempPLYPath)
+            mesh.writeToPLY(atPath: tempPLYPath)
+            plyURL = URL(fileURLWithPath: tempPLYPath)
+        } else if let plyPath = scan.plyPath {
+            plyURL = URL(fileURLWithPath: plyPath)
+        } else {
+            JetsonUploader.showResult(.failure(NSError(domain: "JetsonUploader", code: 0,
+                userInfo: [NSLocalizedDescriptionKey: "No PLY data available to send."])), from: self)
+            return
+        }
+
+        JetsonUploader.upload(plyFileURL: plyURL) { [weak self] result in
+            guard let self = self else { return }
+            JetsonUploader.showResult(result, from: self)
         }
     }
     

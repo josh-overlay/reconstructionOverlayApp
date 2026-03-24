@@ -46,6 +46,7 @@
 		7685718B222CCB4000066B6E /* BPLYScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76857187222CCB4000066B6E /* BPLYScanningViewController.swift */; };
 		7685718E222CCB8500066B6E /* BPLYDepthDataAccumulator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7685718D222CCB8500066B6E /* BPLYDepthDataAccumulator.mm */; };
 		76871D032193AB9D00C1ABA0 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76871D022193AB9D00C1ABA0 /* InitialViewController.swift */; };
+		F557736B2C3845BEB7364959 /* JetsonUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE912B50A84598AB11D6ED /* JetsonUploader.swift */; };
 		768967F023943068007179B2 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768967EE2394305D007179B2 /* SceneKit.framework */; };
 		768967F223943069007179B2 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768967EE2394305D007179B2 /* SceneKit.framework */; };
 		768967F42394306D007179B2 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768967EE2394305D007179B2 /* SceneKit.framework */; };
@@ -87,6 +88,8 @@
 		A584B61F214B1D3900BEF8EE /* ClearPass.metal in Sources */ = {isa = PBXBuildFile; fileRef = A584B61E214B1D3900BEF8EE /* ClearPass.metal */; };
 		A584B62D214B2DE200BEF8EE /* DrawAxes.mm in Sources */ = {isa = PBXBuildFile; fileRef = A584B627214B2DE100BEF8EE /* DrawAxes.mm */; };
 		A584B62E214B2DE200BEF8EE /* DrawAxes.metal in Sources */ = {isa = PBXBuildFile; fileRef = A584B62C214B2DE100BEF8EE /* DrawAxes.metal */; };
+		D726E3D02F72037100A88565 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D726E3CF2F72037100A88565 /* .gitignore */; };
+		D726E3D22F72037400A88565 /* README 2.md in Resources */ = {isa = PBXBuildFile; fileRef = D726E3D12F72037400A88565 /* README 2.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -178,6 +181,7 @@
 		7685718C222CCB8500066B6E /* BPLYDepthDataAccumulator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPLYDepthDataAccumulator.h; sourceTree = "<group>"; };
 		7685718D222CCB8500066B6E /* BPLYDepthDataAccumulator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BPLYDepthDataAccumulator.mm; sourceTree = "<group>"; };
 		76871D022193AB9D00C1ABA0 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		A2EE912B50A84598AB11D6ED /* JetsonUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JetsonUploader.swift; sourceTree = "<group>"; };
 		768967EE2394305D007179B2 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		768F64E82121570600C1B1DA /* TrueDepthFusion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrueDepthFusion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768F64F32121570600C1B1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 		A584B627214B2DE100BEF8EE /* DrawAxes.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DrawAxes.mm; sourceTree = "<group>"; };
 		A584B62B214B2DE100BEF8EE /* DrawAxes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DrawAxes.hpp; sourceTree = "<group>"; };
 		A584B62C214B2DE100BEF8EE /* DrawAxes.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = DrawAxes.metal; sourceTree = "<group>"; };
+		D726E3CF2F72037100A88565 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D726E3D12F72037400A88565 /* README 2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README 2.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +356,8 @@
 				76539CBF20F5BBC1009C332E /* Main.storyboard */,
 				76539CC220F5BBC1009C332E /* Info.plist */,
 				76539CC520F5BBC1009C332E /* VisualTesterMac.entitlements */,
+				D726E3CF2F72037100A88565 /* .gitignore */,
+				D726E3D12F72037400A88565 /* README 2.md */,
 			);
 			path = VisualTesterMac;
 			sourceTree = "<group>";
@@ -378,6 +386,7 @@
 				7693C45421587E30005A4772 /* ScanningViewRendering */,
 				768F650A21215B3C00C1B1DA /* AppDelegate.swift */,
 				76871D022193AB9D00C1ABA0 /* InitialViewController.swift */,
+				A2EE912B50A84598AB11D6ED /* JetsonUploader.swift */,
 				768F65042121591F00C1B1DA /* ScanningViewController.swift */,
 				76857187222CCB4000066B6E /* BPLYScanningViewController.swift */,
 				768F650621215A6000C1B1DA /* ScanPreviewViewController.scn */,
@@ -600,6 +609,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				76539CBE20F5BBC1009C332E /* Assets.xcassets in Resources */,
+				D726E3D02F72037100A88565 /* .gitignore in Resources */,
+				D726E3D22F72037400A88565 /* README 2.md in Resources */,
 				76539CC120F5BBC1009C332E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -698,6 +709,7 @@
 				76999472215C9FF0007CF275 /* PaddedLabel.swift in Sources */,
 				76385562212F390500C7DA06 /* DepthColoringFilter.swift in Sources */,
 				76871D032193AB9D00C1ABA0 /* InitialViewController.swift in Sources */,
+				F557736B2C3845BEB7364959 /* JetsonUploader.swift in Sources */,
 				768F650E21215BD500C1B1DA /* Scan.mm in Sources */,
 				768F650B21215B3C00C1B1DA /* AppDelegate.swift in Sources */,
 			);
@@ -969,7 +981,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = FZU7U4ED2K;
+				DEVELOPMENT_TEAM = 82NA5C4XZT;
 				INFOPLIST_FILE = StandardCyborgAlgorithmsTestbed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -983,7 +995,7 @@
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overlay.visionAlgorithms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -995,7 +1007,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = FZU7U4ED2K;
+				DEVELOPMENT_TEAM = 82NA5C4XZT;
 				INFOPLIST_FILE = StandardCyborgAlgorithmsTestbed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1009,7 +1021,7 @@
 					"$(inherited)",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.StandardCyborgAlgorithmsTestbed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overlay.visionAlgorithms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1023,14 +1035,15 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FZU7U4ED2K;
+				DEVELOPMENT_TEAM = 82NA5C4XZT;
 				INFOPLIST_FILE = TrueDepthFusion/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Overlay Vision";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overlay.TrueDepthFusion;
 				PRODUCT_NAME = TrueDepthFusion;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrueDepthFusion/TrueDepthFusion-Bridging-Header.h";
@@ -1045,14 +1058,15 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FZU7U4ED2K;
+				DEVELOPMENT_TEAM = 82NA5C4XZT;
 				INFOPLIST_FILE = TrueDepthFusion/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Overlay Vision";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.standardcyborg.TrueDepthFusion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overlay.TrueDepthFusion;
 				PRODUCT_NAME = TrueDepthFusion;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrueDepthFusion/TrueDepthFusion-Bridging-Header.h";

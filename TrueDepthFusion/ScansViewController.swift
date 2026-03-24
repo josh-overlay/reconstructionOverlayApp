@@ -2,8 +2,7 @@
 //  ScansViewController.swift
 //  DepthRenderer
 //
-//  Created by Aaron Thompson on 5/10/18.
-//
+
 
 import Foundation
 import UIKit
@@ -14,12 +13,22 @@ class ScansViewController: UITableViewController {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         tableView.addSubview(_noScansLabel)
         _noScansLabel.text = "No Scans"
         _noScansLabel.textAlignment = NSTextAlignment.center
         _noScansLabel.textColor = UIColor.gray
         _noScansLabel.font = UIFont.systemFont(ofSize: 24, weight: UIFont.Weight.medium)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"),
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(_showJetsonSettings))
+        navigationItem.rightBarButtonItem = settingsButton
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,14 +83,21 @@ class ScansViewController: UITableViewController {
             self._deleteScan(at: indexPath)
             completion(true)
         }
-        
+
         let export = UIContextualAction(style: .normal, title: "Export") { action, view, completion in
             let scan = self._scans[indexPath.row]
             self._export(scan)
             completion(true)
         }
-        
-        return UISwipeActionsConfiguration(actions: [delete, export])
+
+        let jetson = UIContextualAction(style: .normal, title: "Jetson") { action, view, completion in
+            let scan = self._scans[indexPath.row]
+            self._sendToJetson(scan)
+            completion(true)
+        }
+        jetson.backgroundColor = .systemIndigo
+
+        return UISwipeActionsConfiguration(actions: [delete, export, jetson])
     }
     
     // MARK: - Private
@@ -130,6 +146,19 @@ class ScansViewController: UITableViewController {
         }
     }
     
+    @objc private func _showJetsonSettings() {
+        JetsonUploader.showSettings(from: self)
+    }
+
+    private func _sendToJetson(_ scan: Scan) {
+        guard let plyPath = scan.plyPath else { return }
+        let plyURL = URL(fileURLWithPath: plyPath)
+        JetsonUploader.upload(plyFileURL: plyURL) { [weak self] result in
+            guard let self = self else { return }
+            JetsonUploader.showResult(result, from: self)
+        }
+    }
+
     private func _deleteScan(at indexPath: IndexPath) {
         let scan = _scans[indexPath.row]
         

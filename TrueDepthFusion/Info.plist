@@ -24,6 +24,11 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>This application will use the camera for 3D scanning</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
