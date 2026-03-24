@@ -1,9 +1,5 @@
 //
 //  InitialViewController.swift
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 11/7/18.
-//
 
 import Foundation
 import UIKit
@@ -13,7 +9,7 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var introLabel: UILabel!
     
     override func viewDidLoad() {
-        introLabel.text = "Take a Depth Scan with your " + UIDevice.current.localizedModel
+        introLabel.text = "Welcome to Overlay Vision on  " + UIDevice.current.localizedModel
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             view.backgroundColor = UIColor(white: 0.9, alpha: 1.0)

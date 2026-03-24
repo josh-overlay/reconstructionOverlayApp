@@ -2,8 +2,7 @@
 //  AppDelegate.m
 //  StandardCyborgGeometryTestbed
 //
-//  Created by Aaron Thompson on 3/28/19.
-//
+
 
 #import "AppDelegate.h"
 

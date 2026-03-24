@@ -1,9 +1,6 @@
 //
 //  CameraControl.m
 //  VisualTesterMac
-//
-//  Created by Aaron Thompson on 9/7/18.
-//
 
 #import <GLKit/GLKMatrix4.h>
 #import "CameraControl.h"

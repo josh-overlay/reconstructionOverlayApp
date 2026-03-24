@@ -1,9 +1,7 @@
 //
 //  CameraControl.h
 //  VisualTesterMac
-//
-//  Created by Aaron Thompson on 9/7/18.
-//
+
 
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>

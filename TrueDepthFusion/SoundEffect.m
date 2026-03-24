@@ -1,9 +1,6 @@
 //
 //  SoundEffect.m
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 8/22/18.
-//
+
 
 #import "SoundEffect.h"
 #import <AudioToolbox/AudioToolbox.h>

@@ -2,8 +2,7 @@
 //  BaseTestViewController.h
 //  StandardCyborgGeometryTestbed
 //
-//  Created by Aaron Thompson on 4/5/19.
-//
+
 
 #import <SceneKit/SceneKit.h>
 #import <UIKit/UIKit.h>

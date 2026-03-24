@@ -2,8 +2,7 @@
 //  NodeToNodeLineNode.m
 //  StandardCyborgGeometryTestbed
 //
-//  Created by Aaron Thompson on 4/6/19.
-//
+
 
 #import "NodeToNodeLineNode.h"
 

@@ -1,9 +1,7 @@
 //
 //  DrawPointCloud.metal
 //  StandardCyborgFusion
-//
-//  Created by Aaron Thompson on 7/25/18.
-//
+
 
 #include <metal_stdlib>
 #include "../../StandardCyborgFusion/Sources/include/StandardCyborgFusion/Surfel.hpp"

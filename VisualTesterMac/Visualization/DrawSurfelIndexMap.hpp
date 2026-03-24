@@ -1,9 +1,7 @@
 //
 //  DrawSurfelIndexMap.hpp
 //  VisualTesterMac
-//
-//  Created by Aaron Thompson on 10/17/18.
-//
+
 
 #import <Foundation/Foundation.h>
 #import <Metal/Metal.h>

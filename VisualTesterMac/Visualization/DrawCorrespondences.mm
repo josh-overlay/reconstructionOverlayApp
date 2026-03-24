@@ -1,9 +1,7 @@
 //
 //  DrawCorrespondences.mm
 //  VisualTesterMac
-//
-//  Created by Aaron Thompson on 9/17/18.
-//
+
 
 #import "DrawCorrespondences.hpp"
 #import <simd/simd.h>

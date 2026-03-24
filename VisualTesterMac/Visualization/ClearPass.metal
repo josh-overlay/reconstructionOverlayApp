@@ -1,9 +1,7 @@
 //
 //  ClearPass.metal
 //  VisualTesterMac
-//
-//  Created by Ricky Reusser on 9/13/18.
-//
+
 
 #include <metal_stdlib>
 using namespace metal;

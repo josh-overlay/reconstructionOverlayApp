@@ -1,7 +1,5 @@
 //  DrawRawDepths.mm
-//
-//  Created by Aaron Thompson on 6/26/23.
-//
+
 
 #import "DrawRawDepths.hpp"
 

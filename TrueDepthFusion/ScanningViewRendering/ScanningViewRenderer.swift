@@ -1,9 +1,6 @@
 //
 //  ScanningViewRenderer.swift
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 9/23/18.
-//
+
 
 import AVFoundation
 import Foundation

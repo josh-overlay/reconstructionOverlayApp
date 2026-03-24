@@ -2,8 +2,7 @@
 //  PlaneRemovalViewController.mm
 //  StandardCyborgGeometryTestbed
 //
-//  Created by Ricky Reusser on 4/10/19.
-//
+
 
 #import <standard_cyborg/algorithms/EstimatePlane.hpp>
 #import <standard_cyborg/util/DataUtils.hpp>

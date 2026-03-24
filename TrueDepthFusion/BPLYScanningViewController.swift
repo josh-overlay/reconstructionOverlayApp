@@ -1,9 +1,6 @@
 //
 //  BPLYScanningViewController.swift
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 11/7/18.
-//
+
 
 import ARKit
 import CoreMotion

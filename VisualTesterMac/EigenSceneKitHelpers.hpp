@@ -1,9 +1,7 @@
 //
 //  EigenSceneKitHelpers.hpp
 //  VisualTesterMac
-//
-//  Created by Aaron Thompson on 7/14/18.
-//
+
 
 #ifndef EigenHelpers_hpp
 #define EigenHelpers_hpp

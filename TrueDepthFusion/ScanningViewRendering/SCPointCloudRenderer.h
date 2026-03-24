@@ -1,9 +1,6 @@
 //
 //  SCPointCloudRenderer.h
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 9/23/18.
-//
+
 
 #import <CoreGraphics/CoreGraphics.h>
 #import <Foundation/Foundation.h>

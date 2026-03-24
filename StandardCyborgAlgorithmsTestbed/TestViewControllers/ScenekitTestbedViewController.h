@@ -2,8 +2,7 @@
 //  ScenekitTestbedViewController.h
 //  StandardCyborgFusion
 //
-//  Created by Ricky Reusser on 4/10/19.
-//
+
 
 #import "BaseTestViewController.h"
 

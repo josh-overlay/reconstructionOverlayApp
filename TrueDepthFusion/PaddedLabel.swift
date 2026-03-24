@@ -1,9 +1,6 @@
 //
 //  PaddedLabel.swift
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 9/26/18.
-//
+
 
 import UIKit
 

@@ -1,9 +1,7 @@
 //
 //  DrawCorrespondences.metal
 //  VisualTesterMac
-//
-//  Created by Aaron Thompson on 9/17/18.
-//
+
 
 #include <metal_stdlib>
 using namespace metal;

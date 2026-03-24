@@ -1,9 +1,7 @@
 //
 //  DrawCorrespondences.h
 //  VisualTesterMac
-//
-//  Created by Aaron Thompson on 9/17/18.
-//
+
 
 #import <Foundation/Foundation.h>
 #import "MetalVisualizationEngine.hpp"

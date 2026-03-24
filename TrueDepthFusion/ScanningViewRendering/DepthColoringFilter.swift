@@ -1,9 +1,6 @@
 //
 //  DepthColoringFilter.swift
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 8/22/18.
-//
+
 
 import CoreImage
 import CoreVideo

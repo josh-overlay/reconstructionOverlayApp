@@ -1,9 +1,7 @@
 //
 //  DrawSurfelIndexMap.metal
 //  VisualTesterMac
-//
-//  Created by Aaron Thompson on 10/17/18.
-//
+
 
 #include <metal_stdlib>
 using namespace metal;

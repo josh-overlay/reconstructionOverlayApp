@@ -2,8 +2,7 @@
 //  BaseTestViewController.m
 //  StandardCyborgGeometryTestbed
 //
-//  Created by Aaron Thompson on 4/5/19.
-//
+
 
 #import <SceneKit/SceneKit.h>
 #import <standard_cyborg/sc3d/Geometry.hpp>

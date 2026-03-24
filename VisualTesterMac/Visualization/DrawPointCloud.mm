@@ -1,9 +1,7 @@
 //
 //  DrawPointCloud.mm
 //  VisualTesterMac
-//
-//  Created by Ricky Reusser on 8/31/18.
-//
+
 
 #import <CoreGraphics/CoreGraphics.h>
 #import <GLKit/GLKMatrix4.h>

@@ -2,8 +2,7 @@
 //  DistanceAngleViewController.mm
 //  StandardCyborgGeometryTestbed
 //
-//  Created by Aaron Thompson on 3/28/19.
-//
+
 
 #import <SceneKit/SceneKit.h>
 #import <StandardCyborgFusion/SceneKit+Geometry.hpp>

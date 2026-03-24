@@ -1,9 +1,5 @@
 //
 //  SCPointCloudRenderer.m
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 9/23/18.
-//
 
 #import <AVFoundation/AVFoundation.h>
 #import <MetalKit/MetalKit.h>

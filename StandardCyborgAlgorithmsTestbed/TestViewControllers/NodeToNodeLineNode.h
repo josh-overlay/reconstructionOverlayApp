@@ -2,8 +2,7 @@
 //  NodeToNodeLineNode.h
 //  StandardCyborgGeometryTestbed
 //
-//  Created by Aaron Thompson on 4/6/19.
-//
+
 
 #import <SceneKit/SceneKit.h>
 

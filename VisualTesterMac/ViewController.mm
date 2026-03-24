@@ -1,9 +1,7 @@
 //
 //  ViewController.mm
 //  VisualTesterMac
-//
-//  Created by Aaron Thompson on 7/12/18.
-//
+
 
 #import <SceneKit/SceneKit.h>
 #import <standard_cyborg/sc3d/Geometry.hpp>

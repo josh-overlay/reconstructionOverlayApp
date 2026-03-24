@@ -1,9 +1,6 @@
 //
 //  DepthColoringFilter.metal
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 8/22/18.
-//
+
 
 #include <metal_stdlib>
 

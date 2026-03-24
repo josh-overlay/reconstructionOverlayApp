@@ -1,9 +1,7 @@
 //
 //  UIImageHelpers.swift
 //  Capture
-//
-//  Created by Aaron Thompson on 11/23/18.
-//
+
 
 import UIKit
 

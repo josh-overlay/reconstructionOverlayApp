@@ -1,9 +1,6 @@
 //
 //  SoundEffect.h
-//  TrueDepthFusion
-//
-//  Created by Aaron Thompson on 8/22/18.
-//
+
 
 #import <Foundation/Foundation.h>
 

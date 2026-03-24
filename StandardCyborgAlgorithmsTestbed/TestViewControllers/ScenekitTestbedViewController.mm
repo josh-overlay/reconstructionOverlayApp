@@ -2,8 +2,7 @@
 //  ScenekitTestbedViewController.m
 //  StandardCyborgAlgorithmsTestbed
 //
-//  Created by Ricky Reusser on 5/17/19.
-//
+
 
 #import <Foundation/Foundation.h>
 #import <standard_cyborg/algorithms/MeshSlice.hpp>

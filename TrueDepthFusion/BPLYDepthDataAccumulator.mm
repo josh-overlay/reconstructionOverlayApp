@@ -1,9 +1,7 @@
 //
 //  BPLYDepthDataAccumulator.mm
 //  DepthRenderer
-//
-//  Created by Aaron Thompson on 7/5/18.
-//
+
 
 #import "BPLYDepthDataAccumulator.h"
 #import <standard_cyborg/math/MathHelpers.hpp>

@@ -1,9 +1,6 @@
 //
 //  ClearPass.m
 //  VisualTesterMac
-//
-//  Created by Ricky Reusser on 9/13/18.
-//
 
 #import <Foundation/Foundation.h>
 #import "ClearPass.hpp"

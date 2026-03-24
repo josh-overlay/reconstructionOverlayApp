@@ -2,8 +2,7 @@
 //  Scan.m
 //  DepthRenderer
 //
-//  Created by Aaron Thompson on 5/14/18.
-//
+
 
 #import <ModelIO/ModelIO.h>
 #import <SceneKit/SceneKit.h>
